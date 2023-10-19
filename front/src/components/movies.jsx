@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+import { Outlet, Link } from 'react-router-dom';
 import axios from 'axios'
+import Details from '../routes/details';
 
 function Peliculas() {
 
@@ -12,31 +14,35 @@ function Peliculas() {
           const response = await axios.get('http://localhost:9000/api/lista')
           console.log(response.data)
           setMovieList(response.data.results)
-          
         } catch (e)
         {
           console.error(e);
         }
+        
       }
 
       getData();
     }, []);
     
-
+    
     console.log(movieList)
+
+    
+    
 
     
   return (
     <>
     {/* Poster/Imagen */}
     
-    <div id='peliculas'>
+    <ul id='peliculas'>
       {movieList.map((movie)=>(
-        <div
-        key={movie.id} id={movie.id} className='pelicula'>
+        <li 
+        key={movie.id} className='item'>
+          <Link className='pelicula' key={movie.id} id={movie.id} to={`/detalles/${movie.id}`}>
           <div id='movie-details'>
             <h2>{movie.title}</h2>
-            <p>{movie.overview}</p>
+            <p>{(movie.overview).length > 300 ? movie.overview.substring(0, 300) : movie.overview}...</p>
           </div>
           <div id='pelicula-img'>
         <img
@@ -44,9 +50,10 @@ function Peliculas() {
         alt={movie.title}
         />
         </div>
-        </div>
+        </Link>
+        </li>
       ))}
-    </div>
+    </ul>
     </>
   )
 }

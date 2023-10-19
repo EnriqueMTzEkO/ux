@@ -7,6 +7,7 @@ import {
 import "./index.css";
 import Home from "./routes/home";
 import ErrorPage from "./error-page";
+import Details from "./routes/details";
 
 
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     element: <Home />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "detalles/:movieid",
+    element: <Details />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
