@@ -3,10 +3,29 @@ import { Outlet, Link, useParams } from 'react-router-dom';
 import Peliculas from '../components/movies';
 import Navbar from '../components/navbar';
 
-export default function Details() {
+import axios from "axios";
 
-    const { movieid } = useParams
-    console.log(movieid)
+export default function Details() {
+    const [movieList, setMovieList] = useState();
+
+    useEffect(() => {
+        const getMovie = async () => {
+          try {
+            const response = await axios.get('http://localhost:9000/api/lista')
+            console.log(response.data)
+            setMovieList(response.data.results)
+          } catch (e)
+          {
+            console.error(e);
+          }
+          
+        }
+  
+        getMovie();
+      }, []);
+
+    const { movieid } = useParams();
+    console.log(movieid);
     return (
     <>
     <Navbar />
@@ -17,9 +36,10 @@ export default function Details() {
             <p>{movieid}</p>
         </div>
         <div id='pelicula-img'>
+            {/*
             <img
-            src={`https://image.tmdb.org/t/p/w300${movieid}`}
-            />
+            src={`https://image.tmdb.org/t/p/w300575264`}
+    />*/}
         </div>
         </div>
     </div>
