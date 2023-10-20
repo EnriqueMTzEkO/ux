@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Outlet, Link } from 'react-router-dom';
 import axios from 'axios'
-import Details from '../routes/details';
 
 function Peliculas() {
 
@@ -40,11 +39,11 @@ function Peliculas() {
         <li 
         key={movie.id} className='item'>
           <Link className='pelicula' key={movie.id} id={movie.id} to={`/detalles/${movie.id}`}>
-          <div id='movie-details'>
-            <h2>{movie.title}</h2>
-            <p>{(movie.overview).length > 300 ? movie.overview.substring(0, 300) : movie.overview}...</p>
+          <div id='movies-details'>
+            <h2 className='title'>{movie.title}</h2>
+            <p className='overview'>{(movie.overview).length > 300 ? movie.overview.substring(0, 300) : movie.overview}...</p>
           </div>
-          <div id='pelicula-img'>
+          <div id='peliculas-img'>
         <img
         src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
         alt={movie.title}

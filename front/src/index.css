@@ -85,13 +85,13 @@
   background-color: #7D74B3;
 }
 
-#movie-list{
+#movie-list, #detalles{
   margin-top: 10em;
   display: grid;
   place-items: center;
 }
 
-#peliculas{
+#detalles{
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
@@ -115,17 +115,35 @@
   list-style: none;
 }
 
+#movies-details{
+  text-align: left;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
 #movie-details{
   text-align: left;
   margin-left: 2em;
   margin-right: 2em;
 }
 
-#pelicula-img{
+#peliculas{
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      500px,
+      1fr
+    )
+  );
+  grid-gap: 50px;
+}
+
+#peliculas-img{
   display: contents;
 }
 
-#pelicula-img img{
+#peliculas-img img{
   width: 35%;
 }
 
@@ -140,6 +158,8 @@
 #buscador-movil{
   display: none;
 }
+
+
 
 @media (max-width: 768px) {
   #buscador{

@@ -15,8 +15,8 @@ export default function Home() {
   return (
       <>
       <Navbar />
-  <div id='movie-list' className='container'>
-    <Peliculas />
+      <div id='movie-list' className='container'>
+      <Peliculas />
   </div>
       </>
     );

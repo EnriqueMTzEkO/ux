@@ -24,6 +24,17 @@ routes.get('/api/lista', async (req, res) => {
     }
   });
   
+  routes.get('/api/detalles/:movieid', async (req, res) => {
+    const pelicula = req.params.movieid
+    try {
+      const response  = await axios.get(`https://api.themoviedb.org/3/movie/${pelicula}?api_key=ea0c3d3f1b614245cc2f0b2696f6acc5&language=es-ES`)
+      const data = response.data;
+        res.json(data);
+    } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('Error en el servidor');
+    }
+  });
 
 
     
