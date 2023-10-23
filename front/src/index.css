@@ -72,18 +72,9 @@
   color: hsl(224, 98%, 58%);
 } */
 #navbar{
-  background-color: #7D74B3;
+  background-color: #7D74B3
 }
 
-#user-button{
-  background-color: #7D74B3;
-  border: none;
-  size: 120;
-}
-
-#offcanvasDarkNavbar{
-  background-color: #7D74B3;
-}
 
 #movie-list, #detalles{
   margin-top: 10em;

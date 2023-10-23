@@ -3,9 +3,14 @@ const mysql = require('mysql2');
 const myconn = require('express-myconnection');
 const cors = require('cors');
 
+
+
 const routes = require('./routes/routes')
 
 const app = express()
+app.use(cors());
+
+
 app.set('port', process.env.PORT || 9000)
 
 const dboptions = {
@@ -19,7 +24,7 @@ database: 'ux'
 
 
 
-app.use(cors());
+
 app.use(express.json());
 app.use(myconn(mysql, dboptions, 'single'));
 app.use(routes);

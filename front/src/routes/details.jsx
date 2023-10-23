@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react'
 import { Outlet, Link, useParams } from 'react-router-dom';
 import Navbar from '../components/navbar';
+import Form from '../components/form';
 
 import axios from "axios";
 
 export default function Details() {
   const [movieDetails, setMovieDetails] = useState([])
   const [seccionVisible, setSeccionVisible] = useState(false);
-  const [textoIngresado, setTextoIngresado] = useState('');
+  const [comment, setComment] = useState({
+    nombre: '',
+    comentario: ''
+  })
+
+  const [comments, setComents] = useState([])
 
   const { movieid } = useParams();
 
@@ -38,17 +44,27 @@ export default function Details() {
 
   // visibilidad
   const toggleSeccion = () => {
-
     setSeccionVisible(!seccionVisible);
-    setTextoIngresado('')
+    axios.post(`http://localhost:9000/api/db/pelicula`, {
+    id: movieid,
+    titulo: movieTitle,
+    sinopsis: movieOverview,
+    puntuacion: avg
+    })
+    .then(() => {
+    })
     
   }
 
-  // campo de texto
-  const handleChangeTexto = (event) => {
-    setTextoIngresado(event.target.value);
-    console.log(textoIngresado)
+  const getComments = () => {
+    axios.get('http://localhost:9000/api/db/comentarios')
+    .then((res) => {
+      setComents(response.data);
+    }
+    )
   }
+
+  
 
     return (
     <>
@@ -76,15 +92,12 @@ export default function Details() {
 
       {seccionVisible && (
         <div>
-          <input
-            type="text"
-            value={textoIngresado}
-            onChange={handleChangeTexto}
-            placeholder="Escribe aquí"
-          />
-          <button onClick={toggleSeccion}>enviar(un icono)</button>
+          <Form comment={comment} setComment={setComment}/>
         </div>
         )}
+        </div>
+        <div>
+          <p>demas comentarios</p>
         </div>
     </div>
     </>

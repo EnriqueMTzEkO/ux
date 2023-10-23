@@ -37,6 +37,42 @@ routes.get('/api/lista', async (req, res) => {
   });
 
 
+  routes.post('/api/db/comentario', (req, res) =>{
+    req.getConnection((err, conn) => {
+      const nombre = req.body.nombre;
+      const comentario = req.body.comentario;
+      if(err) return res.send(err)
+      conn.query('INSERT INTO resenas (usuario, comentario, puntuacion) VALUES (?, ?, ?)', [nombre, comentario, 0], (err, result) => {
+        if(err){
+          console.log(err);
+        } else{
+            res.send('comentario añadido')
+        }
+    })
+    })
+    
+    })
+
+    routes.post('/api/db/pelicula', (req, res) =>{
+      req.getConnection((err, conn) => {
+        const id = req.body.id;
+        const titulo = req.body.titulo;
+        const sinopsis = req.body.sinopsis;
+        const puntuacion = req.body.puntuacion;
+        if(err) return res.send(err)
+        conn.query('INSERT INTO Peliculas (Peliculas_ID, Titulo, sinopsis, Puntuacion) VALUES (?, ?, ?, ?)', [id, titulo, sinopsis, puntuacion], (err, result) => {
+          if(err){
+            console.log(err);
+          } else{
+              res.send('comentario añadido')
+          }
+      })
+      })
+      
+      })
+    
+
+
     
 
 module.exports = routes;
