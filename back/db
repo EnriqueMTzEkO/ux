@@ -5,9 +5,9 @@ CREATE DATABASE ux;
 USE ux;
 
 CREATE TABLE Peliculas (
-    Peliculas_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Peliculas_ID INT PRIMARY KEY,
     Titulo VARCHAR(100),
-    Contenido TEXT,
+    sinopsis TEXT,
     Puntuacion INT
 );
 
