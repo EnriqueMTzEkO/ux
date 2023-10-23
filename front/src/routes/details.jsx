@@ -8,12 +8,13 @@ import axios from "axios";
 export default function Details() {
   const [movieDetails, setMovieDetails] = useState([])
   const [seccionVisible, setSeccionVisible] = useState(false);
+  const [comments, setComents] = useState([])
   const [comment, setComment] = useState({
     nombre: '',
     comentario: ''
   })
 
-  const [comments, setComents] = useState([])
+
 
   const { movieid } = useParams();
 
@@ -97,7 +98,12 @@ export default function Details() {
         )}
         </div>
         <div>
-          <p>demas comentarios</p>
+          {comments.map((comment, key) => {
+            <div>
+              
+            </div>
+          })
+        }
         </div>
     </div>
     </>
