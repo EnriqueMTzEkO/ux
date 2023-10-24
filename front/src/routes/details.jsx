@@ -57,15 +57,23 @@ export default function Details() {
     
   }
 
-  const getComments = () => {
-    axios.get('http://localhost:9000/api/db/comentarios')
-    .then((res) => {
-      setComents(response.data);
+  useEffect(() => {
+    const getComments = async () => {
+      try {
+        const response = await axios.get('http://localhost:9000/api/db/comentarios')
+        setComents(response.data);
+      } catch (e)
+      {
+        console.error(e);
+      }
+      
     }
-    )
-  }
 
-  
+
+    getComments();
+  }, []);
+
+  console.log(comments)
 
     return (
     <>

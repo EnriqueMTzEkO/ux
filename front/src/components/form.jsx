@@ -1,10 +1,11 @@
 import React from "react";
+import { Outlet, Link, useParams } from 'react-router-dom';
 import axios from "axios";
 
 const Form = ({comment, setComment}) => {
 
 
-
+  const { movieid } = useParams();
 
     const handleChange = e => {
     setComment({
@@ -23,7 +24,8 @@ const Form = ({comment, setComment}) => {
 
     axios.post(`http://localhost:9000/api/db/comentario`, {
       nombre: comment.nombre,
-      comentario: comment.comentario
+      comentario: comment.comentario,
+      id: movieid
     })
     .then(() => {
       alert('gracias por el comentario');
