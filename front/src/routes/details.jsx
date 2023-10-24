@@ -13,6 +13,7 @@ export default function Details() {
     nombre: '',
     comentario: ''
   })
+  const [voteUpdated, setvoteUpdated] = useState(false)
 
 
 
@@ -56,22 +57,37 @@ export default function Details() {
     })
     
   }
+  
 
   useEffect(() => {
-    const getComments = async () => {
-      try {
-        const response = await axios.get('http://localhost:9000/api/db/comentarios')
-        setComents(response.data);
-      } catch (e)
-      {
-        console.error(e);
-      }
-      
+        fetch(`http://localhost:9000/api/db/comentarios/${movieid}`)
+        .then((response) => response.json())
+        .then((data) => setComents(data))
+        .catch((error) => console.log(error));
+  }, [voteUpdated]);
+
+  const increaseValue =  id => {
+    const requestInit = {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'}
     }
+      fetch('http://localhost:9000/api/db/incrementar/' + id, requestInit)
+      .then(res => res.text())
+      .then(res => console.log(res))
+      setvoteUpdated(true)
+      setvoteUpdated(false)
+  }
 
-
-    getComments();
-  }, []);
+  const decreaseValue =  id => {
+    const requestInit = {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'}
+    }
+      fetch('http://localhost:9000/api/db/decrementar/' + id, requestInit)
+      .then(res => res.text())
+      .then(res => console.log(res))
+      setvoteUpdated(true)
+  }
 
   console.log(comments)
 
@@ -106,12 +122,21 @@ export default function Details() {
         )}
         </div>
         <div>
-          {comments.map((comment, key) => {
-            <div>
-              
+          {comments.map(val => (
+          <div className="row" key={val.Resenas_ID}>
+            <div className="col-md-3">
+              {val.Usuario}
             </div>
-          })
-        }
+            <div className="col-md-5">
+              {val.comentario}
+            </div>
+            <div className="col-md-4">
+              <button onClick={() => increaseValue(val.Resenas_ID)} setvoteUpdated={setvoteUpdated}>up</button>
+              <button onClick={() => decreaseValue(val.Resenas_ID)} setvoteUpdated={setvoteUpdated}>down</button>
+              <p>{val.Puntuacion}</p>
+            </div>
+        </div>
+    ))}
         </div>
     </div>
     </>

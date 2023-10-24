@@ -61,7 +61,7 @@ routes.get('/api/lista', async (req, res) => {
         const sinopsis = req.body.sinopsis;
         const puntuacion = req.body.puntuacion;
         if(err) return res.send(err)
-        conn.query('INSERT INTO Peliculas (Peliculas_ID, Titulo, sinopsis, Puntuacion) VALUES (?, ?, ?, ?)', [id, titulo, sinopsis, puntuacion], (err, result) => {
+        conn.query('INSERT INTO Peliculas (Peliculas_ID, Titulo, sinopsis, promedio) VALUES (?, ?, ?, ?)', [id, titulo, sinopsis, puntuacion], (err, result) => {
           if(err){
             console.log(err);
           } else{
@@ -72,20 +72,40 @@ routes.get('/api/lista', async (req, res) => {
       
       })
 
-      routes.get('/api/db/comentarios', async (req, res) => {
+      routes.get('/api/db/comentarios/:peliculaId', (req, res) => {
+        const peliculaId = req.params.peliculaId;
+        const query = `SELECT * FROM Resenas INNER JOIN Peliculas ON Peliculas_ID = Peliculas_IDS where Peliculas_ID = ? ORDER BY puntuacion DESC`;
         req.getConnection(async (err, conn) => {
-        const pelicula = req.params.movieid;
-        try {
-          const response = await axios.get(`SELECT * FROM Resenas INNER JOIN Peliculas ON Peliculas_ID = Peliculas_IDS where Peliculas_ID = ?`, [pelicula])
-          const data = response.data;
-            res.json(data);
-          } catch (error) {
-            console.error('Error:', error);
-            res.status(500).send('Error en el servidor');
-          }
-        })
+          conn.query(query, [peliculaId], (error, results) => {
+            if (error) {
+              console.error(error);
+              res.status(500).json({ error: 'Error al obtener las reseñas' });
+            } else {
+              res.json(results);
+            }
+          });
         });
-    
+      });
+
+      routes.put('/api/db/incrementar/:id', (req, res) => {
+        req.getConnection((err, conn)=>{
+          if(err) return res.send(err);
+          const id = req.params.id;
+          conn.query('UPDATE Resenas SET Puntuacion = Puntuacion + 1 where Resenas_ID = ?', [id], (err, rows)=>{
+              if(err) return res.send(err)
+          })
+      })
+      });
+      
+      routes.put('/api/db/decrementar/:id', (req, res) => {
+        req.getConnection((err, conn)=>{
+          if(err) return res.send(err);
+          const id = req.params.id;
+          conn.query('UPDATE Resenas SET Puntuacion = Puntuacion - 1 where Resenas_ID = ?', [id], (err, rows)=>{
+              if(err) return res.send(err)
+          })
+      })
+      });
 
 
     
