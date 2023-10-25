@@ -8,7 +8,7 @@ CREATE TABLE Peliculas (
     Peliculas_ID INT PRIMARY KEY,
     Titulo VARCHAR(100),
     sinopsis TEXT,
-    Puntuacion INT
+    promedio INT
 );
 
 
