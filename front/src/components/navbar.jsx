@@ -1,30 +1,50 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import React, { useState } from 'react';
-import { BsFillPersonFill } from "react-icons/bs";
+import { useEffect, useState } from 'react'
+import { FaSearch } from "react-icons/fa";
+import axios from 'axios'
 import $ from 'jquery';
 import Popper from 'popper.js';
-import { Outlet, Link, useLoaderData, Form } from "react-router-dom";
 import '../index.css';
 
-const Navbar = () => {
-    const [resultado, setResultado] = useState(null);
+const Navbar = ({setFiltro}) => {
+    const [movieSearch, setMovieSearch] = useState("");
 
-    const buscarPelicula = async (titulo) => {
-      try {
-        const response = await fetch(`/api/buscar-pelicula/${titulo}`);
-        const data = await response.json();
-        setResultado(data);
-      } catch (error) {
-        console.error('Error al buscar la película:', error);
+
+
+      const getData = async (value) => {
+        if(value !== ''){
+        try {
+          const response = await axios.get(`http://localhost:9000/api/buscador/${value}`)
+          const peliculas = (response.data.results);
+          const filtro = peliculas.filter((movie) => {
+            return(
+              value &&
+              movie.id &&
+              movie.title.toLowerCase().includes(value) &&
+              movie.release_date);
+          });
+          setFiltro(filtro)
+        } catch (e)
+        {
+          console.error(e);
+        }
+        }else{
+          setFiltro('')
+        }
       }
-    }
+
+      const handeleChange = (value) => {
+        setMovieSearch(value)
+        getData(value)
+      }
+
     return ( 
       <nav id='navbar' className="navbar">
-      <div className="container-fluid">
+      <div id="container-fluid" className="container-fluid">
         <form className="d-flex" role="search">
-          <input className="form-control me-2" type="search" placeholder="Pelicula" aria-label="Search"/>
-          <button className="btn btn-success" type="submit">Buscar</button>
+          <FaSearch id='search-icon'/>
+          <input className="form-control me-2" type="search" placeholder="Pelicula" aria-label="Search" value={movieSearch} onChange={(e) => handeleChange(e.target.value)}/>
         </form>
       </div>
     </nav>

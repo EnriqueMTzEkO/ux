@@ -11,7 +11,6 @@ function Peliculas() {
       const getData = async () => {
         try {
           const response = await axios.get('http://localhost:9000/api/lista')
-          console.log(response.data)
           setMovieList(response.data.results)
         } catch (e)
         {
@@ -24,8 +23,7 @@ function Peliculas() {
     }, []);
     
     
-    console.log(movieList)
-
+    // console.log(movieList)
     
     
 

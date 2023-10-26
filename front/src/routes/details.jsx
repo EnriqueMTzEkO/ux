@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Outlet, Link, useParams } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import Form from '../components/form';
+import { SearchResults } from '../components/SearchResults';
 
 import axios from "axios";
 
@@ -14,6 +15,7 @@ export default function Details() {
     comentario: ''
   })
   const [voteUpdated, setvoteUpdated] = useState(false)
+  const [filtro, setFiltro] = useState([]);
 
 
 
@@ -73,9 +75,7 @@ export default function Details() {
     }
       fetch('http://localhost:9000/api/db/incrementar/' + id, requestInit)
       .then(res => res.text())
-      .then(res => console.log(res))
-      setvoteUpdated(true)
-      setvoteUpdated(false)
+      setvoteUpdated(!voteUpdated)
   }
 
   const decreaseValue =  id => {
@@ -85,15 +85,13 @@ export default function Details() {
     }
       fetch('http://localhost:9000/api/db/decrementar/' + id, requestInit)
       .then(res => res.text())
-      .then(res => console.log(res))
-      setvoteUpdated(true)
+      setvoteUpdated(!voteUpdated)
   }
-
-  console.log(comments)
 
     return (
     <>
-    <Navbar />
+    <Navbar setFiltro={setFiltro}/>
+    <SearchResults filtro={filtro}/>
     <div className="container">
         <div id='detalles'>
             <div id='movie-details'>
@@ -131,8 +129,8 @@ export default function Details() {
               {val.comentario}
             </div>
             <div className="col-md-4">
-              <button onClick={() => increaseValue(val.Resenas_ID)} setvoteUpdated={setvoteUpdated}>up</button>
-              <button onClick={() => decreaseValue(val.Resenas_ID)} setvoteUpdated={setvoteUpdated}>down</button>
+              <button onClick={() => increaseValue(val.Resenas_ID)} >up</button>
+              <button onClick={() => decreaseValue(val.Resenas_ID)}>down</button>
               <p>{val.Puntuacion}</p>
             </div>
         </div>

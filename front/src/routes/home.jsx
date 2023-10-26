@@ -8,13 +8,18 @@ import { Outlet, Link, useLoaderData, Form } from "react-router-dom";
 import '../index.css';
 import Peliculas from '../components/movies';
 import Navbar from '../components/navbar';
+import { SearchResults } from '../components/SearchResults';
+
 
 
 export default function Home() {
 
+  const [filtro, setFiltro] = useState([]);
+
   return (
       <>
-      <Navbar />
+      <Navbar setFiltro={setFiltro}/>
+      <SearchResults filtro={filtro}/>
       <div id='movie-list' className='container'>
       <Peliculas />
   </div>

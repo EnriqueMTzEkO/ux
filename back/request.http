@@ -9,4 +9,4 @@ GET http://localhost:9000/api/lista HTTP/1.1
 GET /api/detalles/:movieid HTTP/1.1
 
 ###
-GET /api/db/comentarios/299054 HTTP/1.1
+GET /api/buscador/:movieid HTTP/1.1
