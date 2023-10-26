@@ -36,9 +36,9 @@ function Peliculas() {
       {movieList.map((movie)=>(
         <li 
         key={movie.id} className='item'>
-          <Link className='pelicula' key={movie.id} id={movie.id} to={`/detalles/${movie.id}`}>
+          <Link className=' pelicula' key={movie.id} id={movie.id} to={`/detalles/${movie.id}`}>
           <div id='movies-details'>
-            <h2 className='title'>{movie.title}</h2>
+            <h2 className='title'>{(movie.title).length > 20 ? movie.title.substring(0, 20) + '...': movie.title}</h2>
             <p className='overview'>{(movie.overview).length > 300 ? movie.overview.substring(0, 300) : movie.overview}...</p>
           </div>
           <div id='peliculas-img'>

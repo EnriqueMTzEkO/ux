@@ -93,16 +93,12 @@
 }
 
 #movies-details{
+  max-width: 90%;
   text-align: left;
   margin-left: 2em;
   margin-right: 2em;
 }
 
-#movie-details{
-  text-align: left;
-  margin-left: 2em;
-  margin-right: 2em;
-}
 
 #peliculas{
   display: grid;
@@ -120,9 +116,6 @@
   display: contents;
 }
 
-#peliculas-img img{
-  width: 35%;
-}
 
 #error-page {
   display: flex;
@@ -146,4 +139,56 @@
   #buscador-movil{
     display: block;
   }
+
+  #peliculas{
+    display: grid;
+    max-width: 90%;
+  }
+
+  .item{
+    max-width: 80%;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .pelicula{
+    background-color: #EEEEEE;
+    display: grid;
+    justify-content: center; /* Distribuye los elementos al máximo posible */
+    text-decoration: none;
+    color: inherit;
+    max-width: 100%;
+  }
+
+  #movies-details{
+    text-align: left;
+    margin-left: 2em;
+    margin-right: 0em;
+  }
+  
+  #peliculas-img{
+    display: grid;
+    width: 100%;
+  }
+  
+  #peliculas-img img{
+    width: 100%;
+  }
+
 }
+
+@media (max-width: 620px) {
+  #peliculas-img img{
+    display: grid;
+    justify-self: center;
+    width: 100%;
+  }
+
+  #peliculas{
+    display: grid;
+    align-self: center;
+    grid-template-columns: 1fr;
+    grid-gap: 50px;
+  }
+}
+

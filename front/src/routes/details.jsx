@@ -3,6 +3,9 @@ import { Outlet, Link, useParams } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import Form from '../components/form';
 import { SearchResults } from '../components/SearchResults';
+import '../../src/details.css';
+import { FaPlus } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io"
 
 import axios from "axios";
 
@@ -93,7 +96,7 @@ export default function Details() {
     <Navbar setFiltro={setFiltro}/>
     <SearchResults filtro={filtro}/>
     <div className="container">
-        <div id='detalles'>
+        <div id='detalles' className='mb-5'>
             <div id='movie-details'>
             <h2 className='title'>{movieTitle}</h2>
             <p className='overview'>{movieOverview}</p>
@@ -103,14 +106,24 @@ export default function Details() {
             <p>{avg}</p>
         </div>
         <div id='pelicula-img'>
-            <img
+            <img id='poster'
             src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
             />
         </div>
         </div>
-        <div>
-        <button onClick={toggleSeccion}>
-        {seccionVisible ? 'cerrar o icono' : 'Añadir un comentario (un icono)'}
+        <div id='add-comment'>
+        <button id='comment-button' class="btn btn-warning" onClick={toggleSeccion}>
+        {seccionVisible ? (
+          <>
+          <p>cerrar o icono</p>
+          <IoMdClose className='comment-icons'/>
+          </>
+          ) : (
+            <>
+            <p>Añadir comentario</p>
+            <FaPlus className='comment-icons'/>
+            </>
+            ) }
       </button>
 
       {seccionVisible && (
@@ -119,18 +132,18 @@ export default function Details() {
         </div>
         )}
         </div>
-        <div>
+        <div id='comments'>
           {comments.map(val => (
-          <div className="row" key={val.Resenas_ID}>
-            <div className="col-md-3">
-              {val.Usuario}
+          <div id='commentar' className="row" key={val.Resenas_ID}>
+            <div id='username' className="col-md-3">
+              <p>{val.Usuario}</p>
             </div>
-            <div className="col-md-5">
-              {val.comentario}
+            <div id='comment' className="col-md-5">
+              <p>{val.comentario}</p>
             </div>
-            <div className="col-md-4">
-              <button onClick={() => increaseValue(val.Resenas_ID)} >up</button>
-              <button onClick={() => decreaseValue(val.Resenas_ID)}>down</button>
+            <div id='votes' className="col-md-4">
+              <button className='vote-button' onClick={() => increaseValue(val.Resenas_ID)} >up</button>
+              <button className='vote-button' onClick={() => decreaseValue(val.Resenas_ID)}>down</button>
               <p>{val.Puntuacion}</p>
             </div>
         </div>

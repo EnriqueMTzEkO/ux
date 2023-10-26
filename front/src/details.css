@@ -1,0 +1,123 @@
+#detalles{
+    background-color: #EEEEEE;
+    padding: 0px;
+}
+
+#movie-details{
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+
+.title{
+    max-width: 80%;
+}
+
+.overview{
+    max-width:80%;
+}
+
+#pelicula-img{
+    display: grid;
+    align-items: end;
+    justify-content: end;
+}
+
+#poster{
+    align-items: end;
+}
+
+#add-comment{
+    margin-bottom: 3vh;
+    display: grid;
+    justify-content: end;
+}
+
+#comment-button{
+    border-radius: 20px;
+    width: 15vw;
+    display: flex;
+    justify-content: center;
+}
+
+#comment-button p{
+    font-size: 150%;    
+    align-self: center;
+    margin: 0px;
+}
+
+.comment-icons{
+    height: 1.3em;
+    width: 1.3em;
+    margin: 0 1vh 0 1vh;
+    align-self: center;
+    justify-content: center;
+}
+
+#comments{
+    
+}
+
+#commentar{
+    background-color: #EEEEEE;
+    margin-bottom: 2vh;
+    border-radius: 20px;
+}
+
+#username{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-right: 3px solid #e0e0e0;
+}
+
+#username p {
+    font-size: 120%;
+}
+
+#comment{
+    display: grid;
+    justify-content: start;
+    justify-items: center;
+}
+#comment p{
+    margin: .5em 1em .5em .5em;
+    font-size: 120%;
+}
+
+#votes{
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.vote-button{
+    
+}
+
+
+@media (max-width: 1440px) {
+    #comment-button p{
+        display: none;
+    }
+  }
+
+
+@media (max-width: 768px) {
+    #comment-button p{
+        display: none;
+    }
+
+    #username{
+        border-right: none;
+    }
+
+    #poster{
+        width: 90%;
+    }
+  }
+
+  @media (max-width: 515px) {
+    #poster{
+        width: 300px;
+    }
+  }
