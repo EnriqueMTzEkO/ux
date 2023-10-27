@@ -72,6 +72,7 @@ export default function Details() {
         .catch((error) => console.log(error));
   }, [voteUpdated]);
 
+
   const increaseValue =  id => {
     const requestInit = {
       method: 'PUT',
@@ -82,6 +83,7 @@ export default function Details() {
       setvoteUpdated(!voteUpdated)
   }
 
+
   const decreaseValue =  id => {
     const requestInit = {
       method: 'PUT',
@@ -91,6 +93,8 @@ export default function Details() {
       .then(res => res.text())
       setvoteUpdated(!voteUpdated)
   }
+
+
 
     return (
     <>
@@ -145,8 +149,8 @@ export default function Details() {
               <p>{val.comentario}</p>
             </div>
             <div id='votes' className="col-md-4">
-              <button className='vote-button' onClick={() => increaseValue(val.Resenas_ID)} ><><FaArrowUp /></></button>
-              <button className='vote-button' onClick={() => decreaseValue(val.Resenas_ID)}><><FaArrowDown /></></button>
+              <button id='inc' className={val.upvoted ? 'increase-button' : 'vote-button'} onClick={() => increaseValue(val.Resenas_ID)} ><><FaArrowUp className='vote-icons' /></></button>
+              <button id='dec' className={val.downvoted ? 'decrease-button' : 'vote-button'} onClick={() => decreaseValue(val.Resenas_ID)}><><FaArrowDown className='vote-icons' /></></button>
               <p>{val.Puntuacion}</p>
             </div>
         </div>

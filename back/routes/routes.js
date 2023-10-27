@@ -55,7 +55,7 @@ routes.get('/api/lista', async (req, res) => {
       const comentario = req.body.comentario;
       const id = req.body.id;
       if(err) return res.send(err)
-      conn.query('INSERT INTO resenas (usuario, comentario, puntuacion, Peliculas_IDS) VALUES (?, ?, ?, ?)', [nombre, comentario, 0, id], (err, result) => {
+      conn.query('INSERT INTO resenas (usuario, comentario, puntuacion, upvoted, downvoted, Peliculas_IDS) VALUES (?, ?, ?, ?, ?, ?)', [nombre, comentario, 0, false, false, id], (err, result) => {
         if(err){
           console.log(err);
         } else{
@@ -103,7 +103,7 @@ routes.get('/api/lista', async (req, res) => {
         req.getConnection((err, conn)=>{
           if(err) return res.send(err);
           const id = req.params.id;
-          conn.query('UPDATE Resenas SET Puntuacion = Puntuacion + 1 where Resenas_ID = ?', [id], (err, rows)=>{
+          conn.query('UPDATE Resenas SET Puntuacion = Puntuacion + 1, upvoted = (NOT upvoted), downvoted = false where Resenas_ID = ?', [id], (err, rows)=>{
               if(err) return res.send(err)
           })
       })
@@ -113,7 +113,7 @@ routes.get('/api/lista', async (req, res) => {
         req.getConnection((err, conn)=>{
           if(err) return res.send(err);
           const id = req.params.id;
-          conn.query('UPDATE Resenas SET Puntuacion = Puntuacion - 1 where Resenas_ID = ?', [id], (err, rows)=>{
+          conn.query('UPDATE Resenas SET Puntuacion = Puntuacion - 1, downvoted = (NOT downvoted), upvoted = false where Resenas_ID = ?', [id], (err, rows)=>{
               if(err) return res.send(err)
           })
       })

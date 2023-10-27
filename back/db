@@ -18,6 +18,8 @@ CREATE TABLE Resenas (
     Usuario VARCHAR(20),
     comentario TEXT,
     Puntuacion INT,
+    upvoted boolean,
+    downvoted boolean,
     Peliculas_IDS INT,
     FOREIGN KEY (Peliculas_IDS) REFERENCES Peliculas(Peliculas_ID)
 );

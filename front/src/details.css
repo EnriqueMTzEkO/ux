@@ -95,6 +95,7 @@
     align-items: center;
     justify-content: center
 }
+
 #votes p{
     margin: 0px;
     font-size: 120%;
@@ -103,7 +104,27 @@
 
 .vote-button{
     margin-right: 3.5vw;
+    border-style: none;
 }
+
+.vote-icons{
+    width: 2em;
+    height: 2em;
+}
+
+
+.increase-button{
+    margin-right: 3.5vw;
+    border-style: none;
+    color: #7D74B3;
+}
+
+.decrease-button{
+    margin-right: 3.5vw;
+    border-style: none;
+    color: red
+}
+
 
 
 @media (max-width: 1440px) {
@@ -111,6 +132,13 @@
         display: none;
     }
   }
+
+  @media (max-width: 1024px) {
+    #detalles{
+        display: grid;
+    }
+  }
+
 
 
 @media (max-width: 768px) {
@@ -127,7 +155,7 @@
     }
   }
 
-  @media (max-width: 515px) {
+  @media (max-width: 766px) {
     #poster{
         width: 300px;
     }
