@@ -63,7 +63,7 @@
 
 
 #movie-list, #detalles{
-  margin-top: 10em;
+  margin-top: 10vh;
   display: grid;
   place-items: center;
 }
@@ -93,7 +93,7 @@
 }
 
 #movies-details{
-  max-width: 90%;
+  max-width: 100%;
   text-align: left;
   margin-left: 2em;
   margin-right: 2em;
@@ -114,6 +114,9 @@
 
 #peliculas-img{
   display: contents;
+}
+#peliculas-img img{
+  max-height: fit-content;
 }
 
 

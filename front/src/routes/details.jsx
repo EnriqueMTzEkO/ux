@@ -4,8 +4,9 @@ import Navbar from '../components/navbar';
 import Form from '../components/form';
 import { SearchResults } from '../components/SearchResults';
 import '../../src/details.css';
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaArrowUp, FaArrowDown } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io"
+
 
 import axios from "axios";
 
@@ -100,9 +101,11 @@ export default function Details() {
             <div id='movie-details'>
             <h2 className='title'>{movieTitle}</h2>
             <p className='overview'>{movieOverview}</p>
+            <h5>Generos</h5>
             {genres?.map(gen => (
               <p key={gen.name} className='gen'>{gen.name}</p>
             ))}
+            <h5>Puntuacion</h5>
             <p>{avg}</p>
         </div>
         <div id='pelicula-img'>
@@ -142,8 +145,8 @@ export default function Details() {
               <p>{val.comentario}</p>
             </div>
             <div id='votes' className="col-md-4">
-              <button className='vote-button' onClick={() => increaseValue(val.Resenas_ID)} >up</button>
-              <button className='vote-button' onClick={() => decreaseValue(val.Resenas_ID)}>down</button>
+              <button className='vote-button' onClick={() => increaseValue(val.Resenas_ID)} ><><FaArrowUp /></></button>
+              <button className='vote-button' onClick={() => decreaseValue(val.Resenas_ID)}><><FaArrowDown /></></button>
               <p>{val.Puntuacion}</p>
             </div>
         </div>
