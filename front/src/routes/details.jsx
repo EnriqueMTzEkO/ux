@@ -5,7 +5,7 @@ import Form from '../components/form';
 import { SearchResults } from '../components/SearchResults';
 import '../../src/details.css';
 import { FaPlus, FaArrowUp, FaArrowDown } from "react-icons/fa";
-import { IoMdClose } from "react-icons/io"
+import { IoMdClose } from "react-icons/io";
 
 
 import axios from "axios";
@@ -101,8 +101,8 @@ export default function Details() {
     <Navbar setFiltro={setFiltro}/>
     <SearchResults filtro={filtro}/>
     <div className="container">
-        <div id='detalles' className='mb-5'>
-            <div id='movie-details'>
+        <div id='detallesid' className='row mb-5'>
+            <div id='movie-details' className='col-md-6'>
             <h2 className='title'>{movieTitle}</h2>
             <p className='overview'>{movieOverview}</p>
             <h5>Generos</h5>
@@ -112,7 +112,7 @@ export default function Details() {
             <h5>Puntuacion</h5>
             <p>{avg}</p>
         </div>
-        <div id='pelicula-img'>
+        <div id='pelicula-img' className='col-md-6'>
             <img id='poster'
             src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
             />
@@ -122,7 +122,7 @@ export default function Details() {
         <button id='comment-button' class="btn btn-warning" onClick={toggleSeccion}>
         {seccionVisible ? (
           <>
-          <p>cerrar o icono</p>
+          <p>cerrar</p>
           <IoMdClose className='comment-icons'/>
           </>
           ) : (
@@ -145,7 +145,7 @@ export default function Details() {
             <div id='username' className="col-md-3">
               <p>{val.Usuario}</p>
             </div>
-            <div id='comment' className="col-md-5">
+            <div id='movie-comment' className="col-md-5">
               <p>{val.comentario}</p>
             </div>
             <div id='votes' className="col-md-4">

@@ -9,7 +9,7 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import '../index.css';
 
-const Navbar = ({setFiltro}) => {
+const NavbarHome = ({setFiltro}) => {
     const [movieSearch, setMovieSearch] = useState("");
     const location = useLocation();
 
@@ -45,16 +45,6 @@ const Navbar = ({setFiltro}) => {
     return ( 
       <nav id='navbar' className="navbar">
       <div id="container-fluid" className="container-fluid">
-        <div className="d-flex align-items-center ">  
-        <button id='redirect-button' class="btn btn-warning me-2">
-          <>
-          <Link to={'/'}>
-          <IoMdArrowRoundBack id='navbar-icon'/>
-          </Link>
-          
-          </>
-        </button>
-        </div>
         <form className="d-flex mx-auto" role="search">
           <FaSearch id='search-icon'/>
           <input className="form-control" type="search" placeholder="Pelicula" aria-label="Search" value={movieSearch} onChange={(e) => handeleChange(e.target.value)}/>
@@ -64,4 +54,4 @@ const Navbar = ({setFiltro}) => {
      );
 }
  
-export default Navbar;
+export default NavbarHome;

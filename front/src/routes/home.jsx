@@ -7,7 +7,7 @@ import Popper from 'popper.js';
 import { Outlet, Link, useLoaderData, Form } from "react-router-dom";
 import '../index.css';
 import Peliculas from '../components/movies';
-import Navbar from '../components/navbar';
+import NavbarHome from "../components/navbarHome";
 import { SearchResults } from '../components/SearchResults';
 
 
@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
       <>
-      <Navbar setFiltro={setFiltro}/>
+      <NavbarHome setFiltro={setFiltro}/>
       <SearchResults filtro={filtro}/>
       <div id='movie-list' className='container'>
       <Peliculas />

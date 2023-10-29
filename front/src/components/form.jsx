@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet, Link, useParams } from 'react-router-dom';
 import axios from "axios";
+import { IoSend } from "react-icons/io5";
 
 const Form = ({comment, setComment}) => {
 
@@ -32,17 +33,23 @@ const Form = ({comment, setComment}) => {
     })
     
   }
+
     return(
-        <form onSubmit={handleSubmit}>
+        <form id="coment-form" className="mt-3" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name" className='form-label'>Nombre</label>
-            <input type="text" name="nombre" id="name" onChange={handleChange} />
+            <input className="form-control" type="text" name="nombre" id="name" onChange={handleChange} />
           </div>
           <div>
-            <label htmlFor="comment" className='form-label'>comentario</label>
-            <input type="text" name="comentario" id="comment" onChange={handleChange} />
+            <label htmlFor="comment" className='form-label mt-2'>Comentario</label>
+            <input  className="form-control mb-4" type="text" name="comentario" id="comment" onChange={handleChange} />
           </div>
-          <button type="submit">enviar(un icono)</button>
+          <button type="submit" id="send-comment" class="btn btn-success">
+            <>
+            <p>Enviar</p>
+            <IoSend id="send-comment-icon"/>
+            </>
+          </button>
           </form>
     );
 };
