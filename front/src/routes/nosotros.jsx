@@ -5,24 +5,22 @@ import { BsFillPersonFill } from "react-icons/bs";
 import $ from 'jquery';
 import Popper from 'popper.js';
 import { Outlet, Link, useLoaderData, Form } from "react-router-dom";
-import '../index.css';
-import Peliculas from '../components/movies';
+import '../footerPages.css';
 import NavbarHome from "../components/navbarHome";
-import Footer from '../components/footer';
 import { SearchResults } from '../components/SearchResults';
+import Footer from '../components/footer';
 
 
+export default function Nosotros() {
 
-export default function Home() {
-
-  const [filtro, setFiltro] = useState([]);
+    const [filtro, setFiltro] = useState([]);
 
   return (
       <>
       <NavbarHome setFiltro={setFiltro}/>
       <SearchResults filtro={filtro}/>
-      <div id='movie-list' className='container'>
-      <Peliculas />
+      <div id='nosotros'>
+
       </div>
       <div id='footer-section'>
         <Footer/>
