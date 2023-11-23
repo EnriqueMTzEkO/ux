@@ -3,6 +3,7 @@
 .container{
   height: 100vh;
 }
+
 .show-list{
   display: flex;
   justify-content: center; /* Centra horizontalmente */
@@ -88,6 +89,10 @@
   color: inherit;
 }
 
+.pelicula:hover{
+  box-shadow: 0 0 30px #7D74B3;
+}
+
 .item{
   list-style: none;
 }
@@ -98,6 +103,7 @@
   margin-left: 2em;
   margin-right: 2em;
 }
+
 
 
 #peliculas{
@@ -216,4 +222,3 @@
     grid-gap: 50px;
   }
 }
-

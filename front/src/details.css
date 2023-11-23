@@ -2,7 +2,6 @@
     width: 50px;
     margin: 0px;
     padding: 0px;
-    display: none;
 }
 
 #redirect-button a{
@@ -100,6 +99,7 @@
     background-color: #EEEEEE;
     margin-bottom: 2vh;
     border-radius: 20px;
+    
 }
 
 #username{
@@ -118,10 +118,12 @@
     display: grid;
     justify-content: start;
     justify-items: center;
+    
 }
 #movie-comment p{
     margin: .5em 1em .5em .5em;
     font-size: 120%;
+    word-break: break-word;   
 }
 
 #votes{

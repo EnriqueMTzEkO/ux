@@ -153,7 +153,7 @@ export default function Details() {
               <button id='dec' className={val.downvoted ? 'decrease-button' : 'vote-button'} onClick={() => decreaseValue(val.Resenas_ID)}><><FaArrowDown className='vote-icons' /></></button>
               <p>{val.Puntuacion}</p>
             </div>
-        </div>
+          </div>
     ))}
         </div>
     </div>
@@ -161,4 +161,3 @@ export default function Details() {
     );
 }
  
-
