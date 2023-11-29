@@ -9,6 +9,8 @@ import "./index.css";
 import Home from "./routes/home";
 import ErrorPage from "./error-page";
 import Details from "./routes/details";
+import Contactanos from "./routes/contactanos"
+import Nosotros from "./routes/nosotros";
 
 
 const router = createBrowserRouter([
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
   {
     path: "detalles/:movieid",
     element: <Details />
+  },
+  {
+    path: '/contactanos',
+    element: <Contactanos />
+  },
+  {
+    path: '/nosotros',
+    element: <Nosotros />
   }
 ]);
 

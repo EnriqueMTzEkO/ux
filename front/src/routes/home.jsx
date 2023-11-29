@@ -9,20 +9,19 @@ import '../index.css';
 import Peliculas from '../components/movies';
 import NavbarHome from "../components/navbarHome";
 import { SearchResults } from '../components/SearchResults';
-
-
+import Footer from "../components/footer";
 
 export default function Home() {
-
   const [filtro, setFiltro] = useState([]);
 
   return (
-      <>
+    <>
       <NavbarHome setFiltro={setFiltro}/>
       <SearchResults filtro={filtro}/>
       <div id='movie-list' className='container'>
-      <Peliculas />
-  </div>
-      </>
-    );
-  }
+        <Peliculas />
+      </div>
+      <Footer />
+    </>
+  );
+}

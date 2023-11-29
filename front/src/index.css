@@ -1,9 +1,5 @@
 /* Barra de resultado */
 
-.container{
-  height: 100vh;
-}
-
 .show-list{
   display: flex;
   justify-content: center; /* Centra horizontalmente */
@@ -67,6 +63,13 @@
   margin-top: 10vh;
   display: grid;
   place-items: center;
+}
+
+#movie-list{
+  margin-top: 10vh;
+  display: grid;
+  place-items: center;
+  height: auto;
 }
 
 #detalles{
@@ -138,7 +141,93 @@
   display: none;
 }
 
+#footer{
+  background-color: #7D74B3;
+  color: #fff;
+  padding-top: 10px;
+}
 
+.ftr{
+  height: auto;
+}
+
+#navtxt{
+  color: #fff;
+  font-size: 120%;
+}
+
+.contactanos{
+  font-size: 170%;
+  
+}
+/* Formulario */
+.formInp{
+  border: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  height: 40px;
+  width: 80%;
+
+}
+
+.lbl{
+  margin-bottom: 10px;
+}
+
+#enviar{
+  background-color: #ffc107;
+  border: none;
+  border-radius: 5px;
+  width: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000000;
+}
+
+/* Fin de formulario */
+
+#num{
+  font-size: 120%;
+}
+
+.servicios{
+  color: #fff;
+  text-decoration: none;
+  font-size: 120%;
+}
+.social{
+  color: #eae9e9;
+  text-decoration: none;
+}
+
+#section1, #section2, #section3{
+  background-color: #eaf9fa;
+  border: none;
+}
+
+.sectionTxt{
+  font-size: 115%;
+}
+
+#sectionButton{
+  color: #ffc107;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+#btn{
+  background-color: #ffc107;
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 105%;
+}
+
+#cttns{
+  background-color: #EEEEEE;
+  height: 50vh;
+  display: grid;
+  align-items: center;
+  padding: 20px;
+}
 
 @media (max-width: 1024px) {
   .results-list{

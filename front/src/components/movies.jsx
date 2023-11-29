@@ -51,6 +51,7 @@ function Peliculas() {
         </li>
       ))}
     </ul>
+    
     </>
   )
 }
