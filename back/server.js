@@ -14,11 +14,11 @@ app.use(cors());
 app.set('port', process.env.PORT || 9000)
 
 const dboptions = {
-host: 'localhost',
-port: 3306,
-user: 'root',
-password: '12345',
-database: 'ux'
+host: '???',
+port: '???',
+user: '???',
+password: '???',
+database: '???'
 }
 
 
