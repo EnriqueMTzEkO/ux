@@ -1,0 +1,212 @@
+#redirect-button{
+    width: 50px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#redirect-button a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#navbar-icon{
+    height: 1.5em;
+    width: 1.5em;
+}
+
+#detallesid{
+    margin-top: 10vh;
+    background-color: #EEEEEE;
+    padding: 0px;
+}
+
+#movie-details{
+    padding: 2em;
+}
+
+  #movie-details p{
+    font-size: 120%;
+
+}
+
+#pelicula-img{
+    display: flex;
+    justify-content: end;
+}
+
+
+#add-comment{
+    margin-bottom: 3vh;
+    display: grid;
+    justify-content: end;
+}
+
+#coment-form label{
+    font-size: 125%;
+}
+
+#comment-button{
+    border-radius: 10px;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+}
+
+#comment-button p{
+    font-size: 150%;    
+    align-self: center;
+    margin: 0px;
+}
+
+.comment-icons{
+    height: 1.3em;
+    width: 1.3em;
+    margin: 0 1vh 0 1vh;
+    align-self: center;
+    justify-content: center;
+}
+
+#comment{
+    min-height: 50px;
+}
+
+#send-comment{
+    border-radius: 10px;
+    width: 15vw;
+    display: flex;
+    justify-content: center;
+}
+
+#send-comment p{
+    font-size: 150%;    
+    align-self: center;
+    margin: 0px;
+}
+
+#send-comment-icon{
+    height: 1.3em;
+    width: 1.3em;
+    margin: 0 1vh 0 1vh;
+    align-self: center;
+    justify-content: center;
+}
+
+#comments{
+    
+}
+
+#commentar{
+    background-color: #EEEEEE;
+    margin-bottom: 2vh;
+    border-radius: 20px;
+    
+}
+
+#username{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-right: 3px solid #e0e0e0;
+}
+
+#username p {
+    font-size: 120%;
+    margin: .5em 1em .5em .5em;
+}
+
+#movie-comment{
+    display: grid;
+    justify-content: start;
+    justify-items: center;
+    
+}
+#movie-comment p{
+    margin: .5em 1em .5em .5em;
+    font-size: 120%;
+    word-break: break-word;   
+}
+
+#votes{
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+#votes p{
+    margin: 0px;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.vote-button{
+    margin-right: 3.5vw;
+    border-style: none;
+}
+
+.vote-icons{
+    width: 2em;
+    height: 2em;
+}
+
+
+.increase-button{
+    margin-right: 3.5vw;
+    border-style: none;
+    color: #7D74B3;
+}
+
+.decrease-button{
+    margin-right: 3.5vw;
+    border-style: none;
+    color: red
+}
+
+
+
+@media (max-width: 1440px) {
+    #comment-button p{
+        display: none;
+    }
+    #send-comment p{
+        display: none;
+    }
+}
+
+  @media (max-width: 993px) {
+    #poster{
+        width: 90%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    #redirect-button{
+        display: block;
+    }
+
+    #comment-button p{
+        display: none;
+    }
+
+    #username{
+        border-right: none;
+    }
+    #pelicula-img{
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-control{
+        width: 60vw;
+    }
+
+    #redirect-button{
+        width: 50px;
+    }
+}
+
+@media (max-width: 425px) {
+    .form-control{
+        width: 50vw;
+    }
+}

@@ -1,0 +1,25 @@
+drop database ux;
+CREATE DATABASE ux;
+
+-- Usar la base de datos
+USE ux;
+
+CREATE TABLE Peliculas (
+    Peliculas_ID INT PRIMARY KEY,
+    Titulo VARCHAR(100),
+    sinopsis TEXT,
+    promedio INT
+);
+
+
+-- Crear la tabla de resenas
+CREATE TABLE Resenas (
+    Resenas_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Usuario VARCHAR(20),
+    comentario TEXT,
+    Puntuacion INT,
+    upvoted boolean,
+    downvoted boolean,
+    Peliculas_IDS INT,
+    FOREIGN KEY (Peliculas_IDS) REFERENCES Peliculas(Peliculas_ID)
+);
